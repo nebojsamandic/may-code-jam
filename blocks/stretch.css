@@ -1,0 +1,57 @@
+.stretch-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 2rem;
+  background-color: #2C2C2C;
+  margin: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  gap: 2rem;
+}
+
+.stretch-grid-title {
+  font-size: 3.5rem;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.stretch-grid-subtext {
+  font-size: 1.2rem;
+  color: #CCCCCC;
+  margin-bottom: 2rem;
+}
+
+.timer-buttons button {
+  display: inline-block;
+  width: 120px;
+  background-color: #E5E5E5;
+  color: #1F1F1F;
+  border-radius: 30px;
+  padding: 12px 20px;
+  border: none;
+  margin: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.timer-buttons button:hover {
+  background-color: #D0312D;
+  color: white;
+}
+
+.timer-buttons .active {
+  background-color: #D0312D;
+  color: #FFF;
+}
+
+.stretch-img {
+  max-width: 240px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}

@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./blocks/index.css" />
-  <title>Custome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stretch and Run</title>
+  <link rel="stylesheet" href="./blocks/index.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to Code Jam</h1>
-    <p>Starting point for May Project</p>
+  <header class="navbar">
+    <div class="container">
+      <h1>Stretch and Run</h1>
+      <nav>
+        <a href="#stretch">Stretch</a>
+        <a href="#map">Run</a>
+        <a href="#about">About</a>
+        <button id="toggle-leaderboard">🏆</button>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Getting Started</h2>
-    <p>This is a basic webpage layout. Lets build our project from here.</p>
-  </main>
-  <footer>
-    &copy; 2025 Code Jam. All rights reserved.
-  </footer>
-  <script src="./scripts/index.js"> </script>
+
+  <section id="stretch" class="stretch-grid">
+    <div class="text-content">
+      <h2 class="stretch-grid-title">STRETCHNOW</h2>
+      <p class="stretch-grid-subtext">Automatic Stretch Reminders every 3-30 minutes, with gifs and sound.</p>
+      <div class="timer-buttons">
+        <button>3 min</button>
+        <button>5 min</button>
+        <button>10 min</button>
+        <button>20 min</button>
+        <button>30 min</button>
+      </div>
+    </div>
+    <img src="https://static.vecteezy.com/system/resources/previews/023/986/426/non_2x/man-stretching-exercise-cartoon-style-illustration-free-png.png" alt="Stretch Illustration" class="stretch-img">
+  </section>
+
+  <section id="map" class="map-section">
+    <h3 class="map-title">Running Map</h3>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNbbeqsoUyKd9iirXbf-9W6Slb-QzBSvit9w&s" alt="Map Placeholder" class="map-img">
+  </section>
+
+  <section id="about" class="map-section">
+    <h3 class="map-title">About the Apps Creators</h3>
+    <p>Stretch and Run helps you stay healthy and active with timely reminders, local park guides, and gamified progress tracking.</p>
+  </section>
+
+  <aside id="leaderboard" class="leaderboard hidden">
+    <h3>Leaderboard</h3>
+    <ul>
+      <li><span>Jacob</span><span>12045</span></li>
+      <li><span>Emily</span><span>11520</span></li>
+      <li><span>Michael</span><span>9820</span></li>
+      <li><span>Christopher</span><span>9455</span></li>
+      <li><span>Ashley</span><span>8790</span></li>
+    </ul>
+  </aside>
+
+  <script src="./scripts/index.js">
+
+  </script>
 </body>
 </html>
