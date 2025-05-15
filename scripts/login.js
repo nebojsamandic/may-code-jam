@@ -1,27 +1,27 @@
 const users = {
   jacob: {
     password: "pass123",
-    image: "./images/jacob.jpg"
+    image: "../images/jacob.jpg"
   },
   emily: {
     password: "stretchme",
-    image: "./images/emily.jpg"
+    image: "../images/emily.jpg"
   },
   michael: {
     password: "fitness2024",
-    image: "./images/michael.jpg"
+    image: "../images/michael.jpg"
   },
   christopher: {
     password: "corepower",
-    image: "./images/christopher.jpg"
+    image: "../images/christopher.jpg"
   },
   ashley: {
     password: "moveit",
-    image: "./images/ashley.jpg"
+    image: "../images/ashley.jpg"
   },
   samantha: {
     password: "letsgrow",
-    image: "./images/samantha.jpg"
+    image: "../images/samantha.jpg"
   },
   brian: {
     password: "trainstrong",
@@ -38,7 +38,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 if (user && user.password === passwordInput) {
   localStorage.setItem("username", usernameInput);
   localStorage.setItem("userImage", user.image); 
-  window.location.href = "../index.html";
+  window.location.href = "../pages/homepage.html";
 } else {
     document.getElementById("error-message").textContent = "Invalid username or password.";
   }
