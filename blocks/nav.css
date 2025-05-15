@@ -2,21 +2,29 @@
   background-color: #D0312D;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 1rem 2rem;
-  position: sticky;
   top: 0;
-  z-index: 1000;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar nav {
   display: flex;
   gap: 1.5rem;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
 }
+
 
 .navbar nav a {
   color: white;
@@ -45,18 +53,86 @@
   transform: scale(1.2);
 }
 
+.avatar-wrapper {
+  position: relative;
+}
+
 .user-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  overflow: hidden;
+  overflow: hidden !important;
   margin-left: 15px;
   border: 2px solid white;
-  background-color: #ccc;
+  cursor: pointer;
+  position: relative;
 }
+
 
 .user-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+
+.avatar-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  color: black;
+  width: 220px;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: none;
+}
+
+.avatar-dropdown.show {
+  display: block;
+}
+
+.avatar-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#dropdown-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+#dropdown-username {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.avatar-leaderboard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.avatar-leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.avatar-leaderboard .current-user {
+  background-color: #ffdede;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+*:not(img):not(video):not(canvas) {
+  overflow: visible !important;
 }
