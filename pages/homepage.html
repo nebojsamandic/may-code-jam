@@ -63,6 +63,27 @@
     <h3 class="map-title">About the Apps Creators</h3>
     <p>Stretch and Run helps you stay healthy and active with timely reminders, local park guides, and gamified progress tracking.</p>
   </section>
+  <div class="modal modal_is-opened">
+    <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Your Stretch!</h2>
+          <form class="modal__form">
+            <label for="stretch-name" class="modal__label">
+              Stretch
+              <h2 class="modal__text"> <!-- Add the stretch name and or gif here --> </h2>
+            </label>
+            <label for="stretch-description" class="modal__label">
+              Stretch description
+              <h2 class="modal__text"> <!-- Add the stretch instructions here --> </h2>
+              <p class="modal__text">Did you like the workout(s) provided?</p>
+              <button type="submit" class="modal__like-btn"></button>
+              <button type="submit" class="modal__dislike-btn"></button>
+              <textarea class="modal__comment-box" placeholder="Did you run into any complications or could not complete the stretch?" rows="4"></textarea>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+    </div>
+  </div>
   <script src="../scripts/index.js">
   </script>
 </body>

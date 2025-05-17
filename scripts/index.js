@@ -59,6 +59,9 @@ stretchNowButton.addEventListener("click", getStretch);
   const dropdownUsername = document.getElementById("dropdown-username");
   const leaderboardList = document.getElementById("dropdown-leaderboard");
 
+  const stretchModal = document.querySelector(".modal");
+  const stretchModalCloseBtn = stretchModal.querySelector(".modal__close-btn");
+
   if (!username || !userImage) return;
 
   if (avatarImg) avatarImg.src = userImage;
@@ -94,6 +97,14 @@ stretchNowButton.addEventListener("click", getStretch);
 
     dropdown.addEventListener("click", (e) => e.stopPropagation());
   }
+
+  function closeModal(modal) {
+    modal.classList.remove("modal_is-opened");
+  }
+
+  stretchModalCloseBtn.addEventListener("click", function () {
+    closeModal(stretchModal);
+  });
 });
   
 const stretchCatalog = [
