@@ -36,6 +36,17 @@ window.addEventListener("DOMContentLoaded", () => {
       score: "6900",
     },
   };
+  
+  //will need to change Id 
+const stretchNowButton = document.getElementById('stretch-now');
+function getStretch() => {
+ const stretchIndex = Math.floor(Math.random() * stretches.length) //may need to change array name
+ const selectedStretch = stretches[stretchIndex]; // may need to change array name
+ // stretchName.textContent = selectedStretch.name;
+ //stretchImage.src = selectedStretch.image;
+ //stretchImage.alt = selectedStretch.name;
+}
+stretchNowButton.addEventListener("click", getStretch);
 
   const username = localStorage.getItem("username");
   const userImage = localStorage.getItem("userImage");
@@ -83,7 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
     dropdown.addEventListener("click", (e) => e.stopPropagation());
   }
 });
-
+  
 const stretchCatalog = [
   {
     name: "Calf",
