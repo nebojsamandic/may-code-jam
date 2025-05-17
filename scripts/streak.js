@@ -11,7 +11,7 @@ const yesterday = new Date(today);
 yesterday.setDate(today.getDate() - 1);
 const yesterdayString = yesterday.toDateString();
 
-function initializeStreak() {
+export function initializeStreak() {
   if (lastMarkedDate === todayString) {
     return currentStreak;
   } else if (lastMarkedDate === yesterdayString) {
@@ -20,7 +20,11 @@ function initializeStreak() {
     currentStreak = 1;
   }
   localStorage.setItem(streakKey, currentStreak);
-  localStorage.setItem(dateKey, lastMarkedDate);
+  localStorage.setItem(dateKey, todayString);
+
+  if (streakDisplay) {
+    streakDisplay.textContent = currentStreak;
+  }
 
   return currentStreak;
 }
