@@ -41,8 +41,8 @@ window.addEventListener("DOMContentLoaded", () => {
 //will need to change Id 
 const stretchNowButton = document.getElementById('stretch-now');
 const getStretch = () => {
- const stretchIndex = Math.floor(Math.random() * stretches.length) //may need to change array name
- const selectedStretch = stretches[stretchIndex]; // may need to change array name
+ const stretchIndex = Math.floor(Math.random() * stretchCatalog.length)
+ const selectedStretch = stretchCatalog[stretchIndex]; 
  // stretchName.textContent = selectedStretch.name;
  //stretchImage.src = selectedStretch.image;
  //stretchImage.alt = selectedStretch.name;
