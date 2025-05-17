@@ -37,6 +37,18 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+
+//will need to change Id 
+const stretchNowButton = document.getElementById('stretch-now');
+const getStretch = () => {
+ const stretchIndex = Math.floor(Math.random() * stretches.length) //may need to change array name
+ const selectedStretch = stretches[stretchIndex]; // may need to change array name
+ // stretchName.textContent = selectedStretch.name;
+ //stretchImage.src = selectedStretch.image;
+ //stretchImage.alt = selectedStretch.name;
+}
+stretchNowButton.addEventListener("click", getStretch);
+
   const username = localStorage.getItem("username");
   const userImage = localStorage.getItem("userImage");
 
@@ -94,3 +106,66 @@ window.addEventListener("DOMContentLoaded", () => {
     closeModal(stretchModal);
   });
 });
+  
+const stretchCatalog = [
+  {
+    name: "Calf",
+    description:
+      "To start, stand at arm's length from a wall. Put your right foot behind your left and slowly lean toward the wall while bending your left knee. Keeping your back straight, you should feel your right calf stretch. Hold for about 30 seconds then swap legs. *Image from Mayo clinic*",
+    image: "../images/stretch-calf.jpeg",
+  },
+  {
+    name: "Ankle Rotations",
+    description:
+      "To start, extend your leg out in front of you with your ankle in a neutral position. Slowly rotate your ankle in a full circle. Repeat 10 circles clockwise and counter-clockwise, then repeat this for your other ankle. *Image from Versus Arthritis*",
+    image: "../images/stretch-ankle.jpg",
+  },
+  {
+    name: "Hamstring",
+    description:
+      "To start, stand with your feet together. With a slight bend in your knees, slowly bend at your hips and reach for the ground. Take a few deep breathes to settle into this position, holding for 30 secs each time. *Image from Runners World*",
+    image: "../images/stetch-hamstring.jpeg",
+  },
+  {
+    name: "Quadriceps",
+    description:
+      "To start, stand near a wall and balance your stance on one leg. Using your free hand, grab your ankle and pull it behind you. Hold this stretch for 30 seconds and repeat for the other leg. *Image from alomoves*",
+    image: "../images/stretch-quad.jpg",
+  },
+  {
+    name: "Hip Flexors",
+    description:
+      "To start, kneel on one knee perhaps on a towel for comfort. With a straight back, slowly shift your weight toward your leading knee. You will feel a stretch in your hip, hold that for 30 seconds and then repeat on the other side. *Image from Essentrics*",
+    image: "../images/stretch-hip-flexors.jpg",
+  },
+  {
+    name: "Lower Back",
+    description:
+      "To start, lie on your back and pull one knee towards your chest. Hold for 30 seconds and repeat for the other knee. *Image from Mayo clinic*",
+    image: "../images/stretch-lower-back.jpg",
+  },
+  {
+    name: "Lats",
+    description:
+      "To start, stand with your feet at shoulder width. Raise both of your hands over your head and clasps your hands. Bending at your hip, slowly move your torso to one side. Hold for 30 seconds and repeat for the other side. *Image from Learn Muscles*",
+    image: "../images/stretch-lats.jpg",
+  },
+  {
+    name: "Shoulders",
+    description:
+      "To start, grab a band or a broom. Grabbing the broom past shoulder width with both hands in front of you, slowly raise it above your head and pass through your shoulder joint. You should end up with the broom behind your back. Next, slowly follow the same path back through your shoulder joint to your starting position. Repeat 5-10 times. *Image from Shuttershock*",
+    image: "../images/stretch-shoulder.jpg",
+  },
+  {
+    name: "Upper Back",
+    description:
+      "To start, stand with your back against a wall. Create a 'field goal' with your arms. So that your elbows are touching the wall and your hands are straight up. Start with your elbows as high up on the wall you can and slowly lower them down the wall. Then raise them back above your head. Repeat 10 times. *Image from Men's Health*",
+    image: "../images/stretch-upper-back.jpg",
+  },
+  {
+    name: "Neck",
+    description:
+      "To start, straighten your back and center your head. Slowly rotate your head to the left until you can't go any further and hold for 5 seconds. Then repeat for the right side. Next, with the original starting position, tilt your head to the left until you feel the tension in your neck, not too far, and hold for 5 seconds and repeat for the other side. *Image from exer-pedia*",
+    image: "../images/stretch-neck.jpg",
+  },
+];
