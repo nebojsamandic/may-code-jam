@@ -36,10 +36,11 @@ window.addEventListener("DOMContentLoaded", () => {
       score: "6900",
     },
   };
-  
-  //will need to change Id 
+
+
+//will need to change Id 
 const stretchNowButton = document.getElementById('stretch-now');
-function getStretch() => {
+const getStretch = () => {
  const stretchIndex = Math.floor(Math.random() * stretches.length) //may need to change array name
  const selectedStretch = stretches[stretchIndex]; // may need to change array name
  // stretchName.textContent = selectedStretch.name;
