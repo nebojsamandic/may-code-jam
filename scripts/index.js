@@ -1,4 +1,4 @@
-// needed to initialize this before the function
+import { initializeStreak } from "./streak.js";
 
 const stretchCatalog = [
   {
@@ -101,6 +101,19 @@ window.addEventListener("DOMContentLoaded", () => {
       score: "6900",
     },
   };
+  function openModal(modal) {
+    modal.classList.add("modal_is-opened");
+  }
+  function closeModal(modal) {
+    modal.classList.remove("modal_is-opened");
+  }
+  const saveButton = document.querySelector(".modal__submit-btn");
+
+  if (saveButton) {
+    saveButton.addEventListener("click", function () {
+      // localStorage.setItem(dateKey, todayString);
+      const newStreak = initializeStreak();
+
 
   const stretchNowButton = document.getElementById("stretch-now");
   const getStretch = () => {
@@ -117,6 +130,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
   stretchNowButton.addEventListener("click", getStretch);
 
+      const streakDisplay = document.getElementById("streak-count");
+      if (streakDisplay) {
+        streakDisplay.textContent = newStreak;
+      }
+
+      closeModal(stretchModal);
+    });
+  }
+
+  stretchNowButton.addEventListener("click", () => {
+    getStretch();
+    openModal(stretchModal);
+  });
   const username = localStorage.getItem("username");
   const userImage = localStorage.getItem("userImage");
 
@@ -130,6 +156,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const stretchModal = document.querySelector(".modal");
   const stretchModalCloseBtn = stretchModal.querySelector(".modal__close-btn");
 
+  if (stretchModal && stretchModalCloseBtn) {
+    stretchModalCloseBtn.addEventListener("click", function () {
+      closeModal(stretchModal);
+    });
+  }
   if (!username || !userImage) return;
 
   if (avatarImg) avatarImg.src = userImage;
@@ -164,10 +195,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     dropdown.addEventListener("click", (e) => e.stopPropagation());
-  }
-
-  function closeModal(modal) {
-    modal.classList.remove("modal_is-opened");
   }
 
   stretchModalCloseBtn.addEventListener("click", function () {
