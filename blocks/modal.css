@@ -136,10 +136,12 @@
 
 .modal__like-btn {
   background-image: url("../images/thumbs-up.svg");
+  background-color: transparent;
 }
 
 .modal__dislike-btn {
   background-image: url("../images/thumb-down.svg");
+  background-color: transparent;
 }
 
 .modal__comment-box {
