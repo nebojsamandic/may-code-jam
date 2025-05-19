@@ -4,13 +4,13 @@
 @import url(./stretch.css);
 @import url(./modal.css);
 @import url(./notes.css);
-
+@import url(./footer.css);
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #1F1F1F;
-  color: #FFFFFF; 
+  font-family: "Segoe UI", sans-serif;
+  background-color: #1f1f1f;
+  color: #ffffff;
 }
 
 html {
