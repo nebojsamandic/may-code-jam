@@ -65,11 +65,27 @@ window.addEventListener("DOMContentLoaded", () => {
   const users = {
     jacob: { password: "pass123", image: "../images/jacob.jpg", score: "10" },
     emily: { password: "stretchme", image: "../images/emily.jpg", score: "20" },
-    michael: { password: "fitness2024", image: "../images/michael.jpg", score: "30" },
-    christopher: { password: "corepower", image: "../images/christopher.jpg", score: "10" },
+    michael: {
+      password: "fitness2024",
+      image: "../images/michael.jpg",
+      score: "30",
+    },
+    christopher: {
+      password: "corepower",
+      image: "../images/christopher.jpg",
+      score: "10",
+    },
     ashley: { password: "moveit", image: "../images/ashley.jpg", score: "20" },
-    samantha: { password: "letsgrow", image: "../images/samantha.jpg", score: "15" },
-    brian: { password: "trainstrong", image: "../images/brian.jpg", score: "30" },
+    samantha: {
+      password: "letsgrow",
+      image: "../images/samantha.jpg",
+      score: "15",
+    },
+    brian: {
+      password: "trainstrong",
+      image: "../images/brian.jpg",
+      score: "30",
+    },
   };
 
   let selectedFeedback = null;
@@ -113,23 +129,28 @@ window.addEventListener("DOMContentLoaded", () => {
     const stretchImage = document.getElementById("stretch-image");
     stretchImage.src = selectedStretch.image;
     stretchImage.alt = selectedStretch.name;
-    document.getElementById("stretch-descript").textContent = selectedStretch.description;
+    document.getElementById("stretch-descript").textContent =
+      selectedStretch.description;
   }
 
   if (stretchModal && stretchModalCloseBtn) {
-    stretchModalCloseBtn.addEventListener("click", () => closeModal(stretchModal));
+    stretchModalCloseBtn.addEventListener("click", () =>
+      closeModal(stretchModal)
+    );
   }
 
   if (stretchNowButton) {
     stretchNowButton.addEventListener("click", () => {
       getStretch();
       openModal(stretchModal);
+      timerDisplay.classList.add("hidden");
     });
   }
 
   if (saveButton) {
     saveButton.addEventListener("click", (e) => {
       e.preventDefault();
+      timerDisplay.classList.add("hidden");
 
       if (!selectedFeedback) {
         alert("Please select 👍 or 👎 before saving.");
@@ -147,7 +168,7 @@ window.addEventListener("DOMContentLoaded", () => {
       noteCard.innerHTML = `
         <img src="${stretchImageSrc}" alt="${stretchName}">
         <h4>${stretchName} ${feedbackIcon}</h4>
-        <p>${comment || 'No note left.'}</p>
+        <p>${comment || "No note left."}</p>
       `;
       notesGrid.appendChild(noteCard);
 
@@ -172,7 +193,9 @@ window.addEventListener("DOMContentLoaded", () => {
           leaderboardList.innerHTML = "";
           sortedUsers.forEach(([name, data]) => {
             const li = document.createElement("li");
-            li.innerHTML = `<span>${name.charAt(0).toUpperCase() + name.slice(1)}</span><span>${data.score}</span>`;
+            li.innerHTML = `<span>${
+              name.charAt(0).toUpperCase() + name.slice(1)
+            }</span><span>${data.score}</span>`;
             if (name === username) li.classList.add("current-user");
             leaderboardList.appendChild(li);
           });
@@ -198,15 +221,20 @@ window.addEventListener("DOMContentLoaded", () => {
   if (avatarImg) avatarImg.src = userImage;
   if (dropdownAvatar) dropdownAvatar.src = userImage;
   if (dropdownUsername) {
-    dropdownUsername.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+    dropdownUsername.textContent =
+      username.charAt(0).toUpperCase() + username.slice(1);
   }
 
   if (leaderboardList) {
-    const sortedUsers = Object.entries(users).sort(([, a], [, b]) => b.score - a.score);
+    const sortedUsers = Object.entries(users).sort(
+      ([, a], [, b]) => b.score - a.score
+    );
     leaderboardList.innerHTML = "";
     sortedUsers.forEach(([name, data]) => {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${name.charAt(0).toUpperCase() + name.slice(1)}</span><span>${data.score}</span>`;
+      li.innerHTML = `<span>${
+        name.charAt(0).toUpperCase() + name.slice(1)
+      }</span><span>${data.score}</span>`;
       if (name === username) li.classList.add("current-user");
       leaderboardList.appendChild(li);
     });
@@ -241,7 +269,7 @@ timerButtons.forEach((btn) => {
     if (countdownInterval) clearInterval(countdownInterval);
 
     timerDisplay.classList.remove("hidden");
-    countdownDisplay.textContent = seconds;
+    countdownDisplay.textContent = seconds; // would need to change to minutes for release
 
     let timeLeft = seconds;
     countdownInterval = setInterval(() => {

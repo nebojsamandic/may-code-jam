@@ -49,7 +49,7 @@
   right: 16px;
   width: 32px;
   height: 32px;
-  background: url('../images/close.svg') center/contain no-repeat;
+  background: url("../images/close.svg") center/contain no-repeat;
   border: none;
   cursor: pointer;
   opacity: 0.6;
@@ -75,6 +75,7 @@
   flex-direction: column;
   height: 100%;
   flex: 1;
+  margin: 0;
 }
 
 .modal__scroll-content {
@@ -102,7 +103,7 @@
 .modal__image-wrapper {
   width: 100%;
   height: 180px;
-  background: #f3f3f3;
+  background: transparent;
   border-radius: 12px;
   overflow: hidden;
   position: relative;
@@ -111,11 +112,10 @@
 
 #stretch-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  margin: auto;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .modal__button-row {
@@ -135,11 +135,13 @@
 }
 
 .modal__like-btn {
-  background-image: url('../images/thumbs-up.svg');
+  background-image: url("../images/thumbs-up.svg");
+  background-color: transparent;
 }
 
 .modal__dislike-btn {
-  background-image: url('../images/thumb-down.svg');
+  background-image: url("../images/thumb-down.svg");
+  background-color: transparent;
 }
 
 .modal__comment-box {
@@ -150,7 +152,7 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   min-height: 80px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .modal__submit-btn {
@@ -282,4 +284,3 @@
     height: 150px;
   }
 }
-
