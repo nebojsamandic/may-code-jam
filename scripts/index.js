@@ -128,8 +128,6 @@ window.addEventListener("DOMContentLoaded", () => {
     stretchDescript.textContent = selectedStretch.description;
   };
 
-  stretchNowButton.addEventListener("click", getStretch);
-
       const streakDisplay = document.getElementById("streak-count");
       if (streakDisplay) {
         streakDisplay.textContent = newStreak;
