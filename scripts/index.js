@@ -1,3 +1,6 @@
+
+// testing
+
 import { initializeStreak } from "./streak.js";
 
 const stretchCatalog = [
@@ -62,6 +65,7 @@ const stretchCatalog = [
     image: "../images/stretch-neck.jpg",
   },
 ];
+
 
 window.addEventListener("DOMContentLoaded", () => {
   const users = {
