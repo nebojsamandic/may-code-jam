@@ -18,3 +18,44 @@
   border-radius: 16px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
+
+@media (max-width: 768px) {
+  .map-section {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .map-title {
+    font-size: 1.75rem;
+  }
+
+  .map-img {
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-section {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .map-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .map-title {
+    font-size: 1.3rem;
+  }
+
+  .map-section {
+    padding: 0.75rem;
+    margin: 0.75rem;
+  }
+
+  .map-img {
+    border-radius: 10px;
+  }
+}
