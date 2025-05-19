@@ -12,7 +12,7 @@
     <div class="container">
       <h1>Stretch and Run</h1>
       <div class="stretch-streak">
-        <p>Your current streak: <span id="streak-count"> 0</span>days</p>
+        <p>Your current streak: <span id="streak-count">0</span> day(s)</p>
       </div>
       <nav>
         <a href="#stretch">Stretch</a>
@@ -48,6 +48,7 @@
         <button>10 min</button>
         <button>20 min</button>
         <button>30 min</button>
+        <button id="stretch-now">Stretch Now</button>
       </div>
     </div>
     <img src="https://static.vecteezy.com/system/resources/previews/023/986/426/non_2x/man-stretching-exercise-cartoon-style-illustration-free-png.png" alt="Stretch Illustration" class="stretch-img">
@@ -69,7 +70,29 @@
     <h3 class="map-title">About the Apps Creators</h3>
     <p>Stretch and Run helps you stay healthy and active with timely reminders, local park guides, and gamified progress tracking.</p>
   </section>
-  <script src="../scripts/index.js">
+  <div class="modal modal_is-opened">
+    <div class="modal__container">
+          <button type="button" class="modal__close-btn"></button>
+          <h2 class="modal__title">Your Stretch!</h2>
+          <form class="modal__form">
+            <label for="stretch-name" class="modal__label">
+              Stretch
+              <h2 class="modal__text" id="stretch-name"> <!-- Add the stretch name and or gif here --> </h2>
+              <img id="stretch-image"> <!--added this, CAM.-->
+            </label>
+            <label for="stretch-description" class="modal__label">
+              Stretch description
+              <h2 class="modal__text" id="stretch-descript"> <!-- Add the stretch instructions here --> </h2>
+              <p class="modal__text">Did you like the workout(s) provided?</p>
+              <button type="submit" class="modal__like-btn"></button>
+              <button type="submit" class="modal__dislike-btn"></button>
+              <textarea class="modal__comment-box" placeholder="Did you run into any complications or could not complete the stretch?" rows="4"></textarea>
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+    </div>
+  </div>
+  <script type="module" src="../scripts/index.js">
   </script>
 </body>
 </html>
