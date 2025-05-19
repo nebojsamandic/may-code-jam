@@ -86,3 +86,60 @@ body {
   font-weight: bold;
 }
 
+@media (max-width: 480px) {
+  body {
+    height: auto;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  .login-container {
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-container h1 {
+    font-size: 2rem;
+  }
+
+  .login-container p {
+    font-size: 0.95rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .signup-link {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-container h1 {
+    font-size: 1.75rem;
+  }
+
+  .login-container p {
+    font-size: 0.9rem;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  .login-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .signup-link {
+    font-size: 0.8rem;
+  }
+}
+
+

@@ -1,5 +1,3 @@
-import { initializeStreak } from "./streak.js";
-
 const stretchCatalog = [
   {
     name: "Calf",
@@ -65,82 +63,126 @@ const stretchCatalog = [
 
 window.addEventListener("DOMContentLoaded", () => {
   const users = {
-    jacob: {
-      password: "pass123",
-      image: "../images/jacob.jpg",
-      score: "12045",
-    },
-    emily: {
-      password: "stretchme",
-      image: "../images/emily.jpg",
-      score: "11520",
-    },
-    michael: {
-      password: "fitness2024",
-      image: "../images/michael.jpg",
-      score: "9820",
-    },
-    christopher: {
-      password: "corepower",
-      image: "../images/christopher.jpg",
-      score: "9455",
-    },
-    ashley: {
-      password: "moveit",
-      image: "../images/ashley.jpg",
-      score: "8790",
-    },
-    samantha: {
-      password: "letsgrow",
-      image: "../images/samantha.jpg",
-      score: "7720",
-    },
-    brian: {
-      password: "trainstrong",
-      image: "../images/brian.jpg",
-      score: "6900",
-    },
+    jacob: { password: "pass123", image: "../images/jacob.jpg", score: "10" },
+    emily: { password: "stretchme", image: "../images/emily.jpg", score: "20" },
+    michael: { password: "fitness2024", image: "../images/michael.jpg", score: "30" },
+    christopher: { password: "corepower", image: "../images/christopher.jpg", score: "10" },
+    ashley: { password: "moveit", image: "../images/ashley.jpg", score: "20" },
+    samantha: { password: "letsgrow", image: "../images/samantha.jpg", score: "15" },
+    brian: { password: "trainstrong", image: "../images/brian.jpg", score: "30" },
   };
+
+  let selectedFeedback = null;
+  let streakCount = parseInt(localStorage.getItem("streakCount")) || 0;
+
+  const stretchModal = document.querySelector(".modal");
+  const stretchModalCloseBtn = stretchModal.querySelector(".modal__close-btn");
+  const stretchNowButton = document.getElementById("stretch-now");
+
+  const likeBtn = document.querySelector(".modal__like-btn");
+  const dislikeBtn = document.querySelector(".modal__dislike-btn");
+  const saveButton = document.querySelector(".modal__submit-btn");
+
+  const streakDisplay = document.getElementById("streak-count");
+  if (streakDisplay) streakDisplay.textContent = streakCount;
+
+  likeBtn.addEventListener("click", () => {
+    selectedFeedback = "like";
+    likeBtn.classList.add("selected");
+    dislikeBtn.classList.remove("selected");
+  });
+
+  dislikeBtn.addEventListener("click", () => {
+    selectedFeedback = "dislike";
+    dislikeBtn.classList.add("selected");
+    likeBtn.classList.remove("selected");
+  });
+
   function openModal(modal) {
     modal.classList.add("modal_is-opened");
   }
+
   function closeModal(modal) {
     modal.classList.remove("modal_is-opened");
   }
-  const saveButton = document.querySelector(".modal__submit-btn");
 
-  if (saveButton) {
-    saveButton.addEventListener("click", function () {
-      // localStorage.setItem(dateKey, todayString);
-      const newStreak = initializeStreak();
-
-
-  const stretchNowButton = document.getElementById("stretch-now");
-  const getStretch = () => {
+  function getStretch() {
     const stretchIndex = Math.floor(Math.random() * stretchCatalog.length);
     const selectedStretch = stretchCatalog[stretchIndex];
-    const stretchName = document.getElementById("stretch-name");
+    document.getElementById("stretch-name").textContent = selectedStretch.name;
     const stretchImage = document.getElementById("stretch-image");
-    const stretchDescript = document.getElementById("stretch-descript");
-    stretchName.textContent = selectedStretch.name;
     stretchImage.src = selectedStretch.image;
     stretchImage.alt = selectedStretch.name;
-    stretchDescript.textContent = selectedStretch.description;
-  };
+    document.getElementById("stretch-descript").textContent = selectedStretch.description;
+  }
 
-      const streakDisplay = document.getElementById("streak-count");
-      if (streakDisplay) {
-        streakDisplay.textContent = newStreak;
+  if (stretchModal && stretchModalCloseBtn) {
+    stretchModalCloseBtn.addEventListener("click", () => closeModal(stretchModal));
+  }
+
+  if (stretchNowButton) {
+    stretchNowButton.addEventListener("click", () => {
+      getStretch();
+      openModal(stretchModal);
+    });
+  }
+
+  if (saveButton) {
+    saveButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!selectedFeedback) {
+        alert("Please select 👍 or 👎 before saving.");
+        return;
+      }
+
+      const stretchName = document.getElementById("stretch-name").textContent;
+      const stretchImageSrc = document.getElementById("stretch-image").src;
+      const comment = document.querySelector(".modal__comment-box").value;
+      const feedbackIcon = selectedFeedback === "like" ? "✔️" : "❌";
+
+      const notesGrid = document.getElementById("notes-grid");
+      const noteCard = document.createElement("div");
+      noteCard.classList.add("note-card");
+      noteCard.innerHTML = `
+        <img src="${stretchImageSrc}" alt="${stretchName}">
+        <h4>${stretchName} ${feedbackIcon}</h4>
+        <p>${comment || 'No note left.'}</p>
+      `;
+      notesGrid.appendChild(noteCard);
+
+      document.querySelector(".modal__comment-box").value = "";
+      likeBtn.classList.remove("selected");
+      dislikeBtn.classList.remove("selected");
+      selectedFeedback = null;
+
+      streakCount++;
+      if (streakDisplay) streakDisplay.textContent = streakCount;
+      localStorage.setItem("streakCount", streakCount);
+
+      const username = localStorage.getItem("username");
+      if (username && users[username]) {
+        users[username].score = String(Number(users[username].score) + 1);
+
+        const leaderboardList = document.getElementById("dropdown-leaderboard");
+        if (leaderboardList) {
+          const sortedUsers = Object.entries(users).sort(
+            ([, a], [, b]) => b.score - a.score
+          );
+          leaderboardList.innerHTML = "";
+          sortedUsers.forEach(([name, data]) => {
+            const li = document.createElement("li");
+            li.innerHTML = `<span>${name.charAt(0).toUpperCase() + name.slice(1)}</span><span>${data.score}</span>`;
+            if (name === username) li.classList.add("current-user");
+            leaderboardList.appendChild(li);
+          });
+        }
       }
 
       closeModal(stretchModal);
     });
   }
 
-  stretchNowButton.addEventListener("click", () => {
-    getStretch();
-    openModal(stretchModal);
-  });
   const username = localStorage.getItem("username");
   const userImage = localStorage.getItem("userImage");
 
@@ -151,32 +193,20 @@ window.addEventListener("DOMContentLoaded", () => {
   const dropdownUsername = document.getElementById("dropdown-username");
   const leaderboardList = document.getElementById("dropdown-leaderboard");
 
-  const stretchModal = document.querySelector(".modal");
-  const stretchModalCloseBtn = stretchModal.querySelector(".modal__close-btn");
-
-  if (stretchModal && stretchModalCloseBtn) {
-    stretchModalCloseBtn.addEventListener("click", function () {
-      closeModal(stretchModal);
-    });
-  }
   if (!username || !userImage) return;
 
   if (avatarImg) avatarImg.src = userImage;
   if (dropdownAvatar) dropdownAvatar.src = userImage;
-  if (dropdownUsername)
-    dropdownUsername.textContent =
-      username.charAt(0).toUpperCase() + username.slice(1);
+  if (dropdownUsername) {
+    dropdownUsername.textContent = username.charAt(0).toUpperCase() + username.slice(1);
+  }
 
   if (leaderboardList) {
-    const sortedUsers = Object.entries(users).sort(
-      ([, a], [, b]) => b.score - a.score
-    );
+    const sortedUsers = Object.entries(users).sort(([, a], [, b]) => b.score - a.score);
     leaderboardList.innerHTML = "";
     sortedUsers.forEach(([name, data]) => {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${
-        name.charAt(0).toUpperCase() + name.slice(1)
-      }</span><span>${data.score}</span>`;
+      li.innerHTML = `<span>${name.charAt(0).toUpperCase() + name.slice(1)}</span><span>${data.score}</span>`;
       if (name === username) li.classList.add("current-user");
       leaderboardList.appendChild(li);
     });
@@ -194,8 +224,45 @@ window.addEventListener("DOMContentLoaded", () => {
 
     dropdown.addEventListener("click", (e) => e.stopPropagation());
   }
+});
 
-  stretchModalCloseBtn.addEventListener("click", function () {
-    closeModal(stretchModal);
+const timerButtons = document.querySelectorAll(".timer-buttons button");
+const timerDisplay = document.getElementById("stretch-timer");
+const countdownDisplay = document.getElementById("countdown-display");
+const alertBox = document.getElementById("timer-alert");
+
+let countdownInterval = null;
+
+const alarmSound = new Audio("../sounds/alarm.mp3");
+
+timerButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const seconds = parseInt(btn.textContent);
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    timerDisplay.classList.remove("hidden");
+    countdownDisplay.textContent = seconds;
+
+    let timeLeft = seconds;
+    countdownInterval = setInterval(() => {
+      timeLeft--;
+      countdownDisplay.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+        timerDisplay.classList.add("hidden");
+        showFinalAlert();
+      }
+    }, 1000);
   });
 });
+
+function showFinalAlert() {
+  alarmSound.play();
+
+  alertBox.classList.remove("hidden");
+
+  setTimeout(() => {
+    alertBox.classList.add("hidden");
+  }, 2000);
+}
