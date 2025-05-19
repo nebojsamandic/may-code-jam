@@ -9,6 +9,7 @@
   padding: 10px;
   opacity: 0;
   transition: visibility 0.6s ease, opacity 0.6s ease;
+  z-index: 9999;
 }
 
 .modal_is-opened {
@@ -25,16 +26,25 @@
   background-color: rgba(255, 255, 255, 1);
   padding: 32px 50px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
-.modal__image-container {
-  position: relative;
-  margin: auto;
-  max-width: 730px;
-  width: 100%;
+.modal__image-container img {
+  max-width: 60%;
+  height: auto;
+  display: block;
+  object-fit: contain;
   border-radius: 8px;
-  padding: 32px 50px;
-  box-sizing: border-box;
+  padding: 16px 24px;
+}
+
+#stretch-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .modal__close-btn {
@@ -162,3 +172,4 @@
   border-radius: 4px;
   margin-top: 10px;
 }
+
