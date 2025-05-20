@@ -47,7 +47,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (user && user.password === passwordInput) {
     localStorage.setItem("username", usernameInput);
     localStorage.setItem("userImage", user.image);
-    window.location.href = "../pages/homepage.html";
+    window.location.href = "./pages/homepage.html";
   } else {
     document.getElementById("error-message").textContent =
       "Invalid username or password.";
