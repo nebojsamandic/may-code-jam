@@ -47,7 +47,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (user && user.password === passwordInput) {
     localStorage.setItem("username", usernameInput);
     localStorage.setItem("userImage", user.image);
-    window.location.href = "/may-code-jam/pages.homepage.html";
+    window.location.href = "/may-code-jam/pages/homepage.html";
   } else {
     document.getElementById("error-message").textContent =
       "Invalid username or password.";
