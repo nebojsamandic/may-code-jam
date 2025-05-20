@@ -1,15 +1,76 @@
-# Stretch Today
+# CTRL - ALT - ELITE
 
-## Break up your day of computer work by stretching!
+**Break up your day of computer work by stretching!**
 
-### Stretch Today sends you helpful reminders to take stretching breaks—promoting healthier habits during long hours on your computer or phone. It will also keep track of your progress with the notes feature. Plus you can invite your friends to keep your streak of stretching daily!
+Stretch Today is a simple, fun, and effective web app that encourages healthier habits by reminding you to take stretch breaks. Whether you're grinding at your computer or scrolling on your phone, this app helps you pause, move, and track your progress — with a little friendly competition on the side!
 
-### Check it out by downloading the zip file from our repository and running it with live server on VS Code: https://github.com/nebojsamandic/may-code-jam
+## Try it out!
+- **GitHub Pages:** [https://nebojsamandic.github.io/may-code-jam](https://nebojsamandic.github.io/may-code-jam)
+- **Repo (Download and run with Live Server):** [GitHub Repo](https://github.com/nebojsamandic/may-code-jam)
 
-### Key Functionality:
+---
 
-### 1. Custom timer function to alert you when to stretch.
+## Key Features
 
-### 2. Notes section to keep track of what you've done and how it felt.
+### 1. **Custom Stretch Timer**
+Choose preset intervals (10, 30, 45 min) or press “Stretch Now” to get a random stretch immediately.
 
-### 3. Streak function that will update your streak.
+### 2. **User Login**
+Users log in with a username and password to access their personalized streaks, images, and leaderboard score.
+
+### 3. **Stretch Notes**
+After each stretch, users can leave a comment about how it felt and keep track of what they did.
+
+### 4. **Streak Tracker**
+Your streak updates with each stretch session — stay consistent and beat your personal best!
+
+### 5. **Leaderboard + Avatar Dropdown**
+See where you rank against others and view your avatar and score from the dropdown.
+
+---
+
+## How to Use
+
+1. **Clone or download** this repository.
+2. **Open in VS Code**.
+3. Run with **Live Server** or open `index.html` manually.
+4. Log in as one of the preset users:
+   - Example:
+     - Username: `jacob`
+     - Password: `pass123`
+5. Start stretching and take notes after each session.
+
+---
+
+## 👨‍💻 Built With
+
+- HTML5 / CSS3 / JavaScript
+- Modular JS file structure
+- LocalStorage for user data
+- GitHub Pages for deployment
+
+---
+
+## 👥 Meet the Team
+
+**2025 Code Jam Team:**
+- Steven Bolin  
+- Nebojša "Sky" Mandić  
+- Alison de la Paz  
+- Cam Williams
+
+---
+
+## 📂 Folder Structure
+may-code-jam/
+├── index.html
+├── login.html
+├── pages/
+│ └── homepage.html
+├── scripts/
+│ └── index.js
+├── styles/
+│ └── index.css
+└── images/
+└── [avatars, stretch images...]
+---
