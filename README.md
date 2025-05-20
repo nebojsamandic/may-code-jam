@@ -62,6 +62,7 @@ See where you rank against others and view your avatar and score from the dropdo
 ---
 
 ## 📂 Folder Structure
+
 may-code-jam/
 ├── index.html # Login entry page
 ├── login.html # Alternative login (if applicable)
