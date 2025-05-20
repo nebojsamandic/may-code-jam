@@ -63,17 +63,19 @@ See where you rank against others and view your avatar and score from the dropdo
 
 ## 📂 Folder Structure
 
+```text
 may-code-jam/
-├── index.html # Login entry page
-├── login.html # Alternative login (if applicable)
+├── index.html              # Login entry page
+├── login.html              # Alternate login page (if used)
 ├── pages/
-│ └── homepage.html # Main app page after login
+│   └── homepage.html       # Main app after login
 ├── scripts/
-│ └── index.js # Main JS functionality
+│   └── index.js            # Main JS functionality
 ├── blocks/
-│ └── index.css # Core styles for the app
+│   └── index.css           # Stylesheet
 ├── images/
-│ ├── jacob.jpg # Avatar/user images
-│ ├── emily.jpg
-│ └── ... # More avatars
-└── README.md # You're looking at it
+│   ├── jacob.jpg
+│   ├── emily.jpg
+│   └── ...                 # Other avatar images
+└── README.md               # This file
+
