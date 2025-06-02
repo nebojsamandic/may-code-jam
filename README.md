@@ -40,6 +40,16 @@ See where you rank against others and view your avatar and score from the dropdo
      - Password: `pass123`
 5. Start stretching and take notes after each session.
 
+
+Additional login details to access the project: 
+  jacob: "pass123",
+  emily: "stretchme",
+  michael: "fitness2024",
+  christopher: "corepower",
+  ashley: "moveit",
+  samantha: "letsgrow",
+  brian: "trainstrong",
+
 ---
 
 ## 👨‍💻 Built With
